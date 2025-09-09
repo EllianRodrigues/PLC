@@ -75,4 +75,31 @@ mdc :: Int -> Int -> Int
 mdc a 0 = a
 mdc a b = mdc b (mod a b)
 
+{-Defina as seguintes funções:
+– fatorial
+fat :: Int -> Int
+– compara se quatro números são iguais
+all4Equal :: Int -> Int -> Int -> Int -> Bool
+– Defina all4Equal usando allEqual
+– retorna quantos parâmetros são iguais
+equalCount :: Int -> Int -> Int -> Int-}
+
+
+fat :: Int -> Int
+fat x | x == 0 = 1
+      | otherwise = x * fat (x-1)
+
+allEqual :: Int -> Int -> Bool
+allEqual x y | x == y = True
+             | otherwise = False
+
+all4Equal :: Int -> Int -> Int -> Int -> Bool
+all4Equal a b c d | allEqual a b && allEqual b c && allEqual c d = True
+                  | otherwise = False
+
+equalCount :: Int -> Int -> Int -> Int
+equalCount a b c | allEqual a b && allEqual b c = 3
+                 | allEqual a b || allEqual a c || allEqual b c = 2
+                 | otherwise = 1
+
 
