@@ -1,3 +1,5 @@
+import Data.Char
+
 answer :: Int
 answer = 72
 
@@ -10,8 +12,8 @@ yes = True
 square :: Int -> Int
 square x = x * x
 
-allEqual :: Int -> Int -> Int -> Bool
-allEqual x y z = (x == y) && (y == z)
+allEqual1 :: Int -> Int -> Int -> Bool
+allEqual1 x y z = (x == y) && (y == z)
 
 maxi :: Int -> Int -> Int
 maxi a b | a >= b = a
@@ -102,4 +104,12 @@ equalCount a b c | allEqual a b && allEqual b c = 3
                  | allEqual a b || allEqual a c || allEqual b c = 2
                  | otherwise = 1
 
+{------------------------------------------------}
 
+offset:: Int
+offset = ord 'A' - ord 'a'
+
+transmaiuscula :: Char -> Char
+transmaiuscula letra = chr (ord letra - offset)
+
+{------------------------------------------------}
