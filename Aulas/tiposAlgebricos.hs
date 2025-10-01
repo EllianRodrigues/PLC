@@ -46,7 +46,6 @@ area (Rectangle l1 l2) = l1*l2
 area (Square x) = x*x
 
 ---------------------------------------------------------
-
 data Expr = Lit Int | Add Expr Expr | Sub Expr Expr | Mult Expr Expr
 
 eval :: Expr -> Int
@@ -58,8 +57,34 @@ eval (Mult n1 n2) = (eval n1) * (eval n2)
 expressao = Sub (Add (Lit 3) (Lit 4))
                 (Add (Lit 9) (Lit 10))
 
+----------------------------------------------------------
+
+{-Questões-}
+
+data StrExpr = Lit2 Int | Add2 StrExpr StrExpr | Sub2 StrExpr StrExpr | Mult2 StrExpr StrExpr
+
+showExpress :: StrExpr -> String
+showExpress (Lit2 n) = (show n)
+showExpress (Add2 n1 n2) = "(" ++ (showExpress n1) ++ "+" ++ (showExpress n2) ++ ")"
+showExpress (Sub2 n1 n2) = "(" ++ (showExpress n1) ++ "-" ++ (showExpress n2) ++ ")"
+showExpress (Mult2 n1 n2) = "(" ++ (showExpress n1) ++ "*" ++ (showExpress n2) ++ ")"
+
+expressao2 = Add2 (Lit2 2) (Lit2 5)
+expressao3 = Sub2 (Add2 (Lit2 3) (Lit2 4))
+                (Add2 (Lit2 9) (Lit2 10))
 
 ----------------------------------------------------------
+
+data List t = Nil | Cons t (List t)
+    deriving Show
+
+toList :: List t -> [t]
+toList Nil = []
+toList (Cons x list) = x:toList list
+
+fromList :: [t] -> List t 
+fromList [] = Nil
+fromList (a:as) = Cons a (fromList as)
 
 
 
