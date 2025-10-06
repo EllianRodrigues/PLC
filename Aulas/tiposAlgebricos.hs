@@ -96,6 +96,8 @@ arvore = Node 4 Nilt Nilt
 arvore2 = Node 27 arvore Nilt
 arvore3 = Node 91 Nilt arvore2
 
+
+
 depth :: Tree t -> Int
 depth Nilt = 0
 depth (Node x n1 n2) =  1 + max (depth n1) (depth n2)
@@ -103,4 +105,10 @@ depth (Node x n1 n2) =  1 + max (depth n1) (depth n2)
 collapse :: Tree t -> [t]
 collapse Nilt = []
 collapse (Node x n1 n2) = x: collapse n1 ++ collapse n2
+
+-- mapTree :: (t -> u) -> Tree t -> Tree u
+-- mapTree funcao Nilt = Nilt
+-- mapTree funcao 
+----------------------------------------------------------
+
 
