@@ -16,7 +16,7 @@ toRecords _ = []
 logMes :: String -> String -> Double
 logMes mes fatura = foldl' (+) 0.0 valores
   where
-    partes    = split ';' fatura
+    partes    = split ';' fatura 
     registros = toRecords partes
     valores   = [ read v :: Double | (d,_,v) <- registros, last (words d) == mes ]
 

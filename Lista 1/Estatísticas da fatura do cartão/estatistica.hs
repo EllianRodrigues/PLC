@@ -21,7 +21,7 @@ minMaxCartao :: String -> (Double, Double)
 minMaxCartao s = (minimum valores, maximum valores)
   where
     partes = split ';' s
-    valores = [ read x :: Double | x <- partes, isDouble x ]
+    valores = [ read x :: Double | x <- partes ]
 
 main = do
     a <- getLine
