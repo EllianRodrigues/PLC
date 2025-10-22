@@ -16,8 +16,8 @@ lista1, lista2, lista3 :: [Int]
 lista1 = [1,3..20]
 lista2 = [2,4..20]
 lista3 = [0,3,2,7,4,9,1,5,6,8]
---Q3
 
+--Q3
 mergesort :: Ord t => [t] -> [t]
 mergesort [] = []
 mergesort [x] = [x]
@@ -26,7 +26,6 @@ mergesort lista = merge (mergesort primeiraMetade) (mergesort segundaMetade)
     (primeiraMetade, segundaMetade) = splitAt (length lista `div` 2) lista
 
 --Q4
-
 type Pilha t = [t]
 data Elemento = Valor Int | Soma | Multiplica deriving Show
 
@@ -42,7 +41,6 @@ geraString (Valor n : Multiplica : xs) = "*" ++ show n ++  ")" ++ geraString xs
 -- geraString (x:y:t:xs) | x == Valor a && y == Valor b && t == Soma = "(" ++ show a ++ "+" ++ show b ++ ")" ++ geraString xs
 
 --Q5
-
 calcula :: Pilha Elemento -> Int
 calcula [] = 0
 calcula (Valor n : Valor x : Soma : xs) = calculaaux (n + x) xs
